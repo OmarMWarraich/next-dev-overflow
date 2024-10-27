@@ -1,9 +1,14 @@
 import React from "react";
 
-export default function Home() {
+const Home = () => {
   return (
-    <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20">
-      <main className="text-3xl">Welcome to Next.js with Tailwind CSS!</main>
-    </div>
+    <>
+      <h1 className="h1-bold">Welcome to the world of Next.js!</h1>
+      <h1 className="h1-bold font-spaceGrotesk">
+        Welcome to the world of Next.js!
+      </h1>
+    </>
   );
-}
+};
+
+export default Home;
