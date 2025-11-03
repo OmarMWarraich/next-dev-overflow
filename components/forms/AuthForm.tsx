@@ -41,8 +41,17 @@ const AuthForm = <T extends FieldValues>({
     defaultValues: defaultValues as DefaultValues<T>,
   });
 
-  const handleSubmit: SubmitHandler<T> = async () => {
-    // TODO: Authenticate User
+  const handleSubmit: SubmitHandler<T> = async (data) => {
+    // forward data to the parent onSubmit handler and reset form on success
+    try {
+      const result = await onSubmit(data);
+      if (result?.success) {
+        form.reset();
+      }
+    } catch (error) {
+      // handle or log error as needed
+      console.error(error);
+    }
   };
 
   const buttonText = formType === "SIGN_IN" ? "Sign In" : "Sign Up";
@@ -92,7 +101,7 @@ const AuthForm = <T extends FieldValues>({
 
         {formType === "SIGN_IN" ? (
           <p>
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link
               href={ROUTES.SIGN_UP}
               className="paragraph-semibold primary-text-gradient"
