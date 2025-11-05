@@ -15,7 +15,7 @@ const inter = localFont({
   weight: "100 200 300 400 500 600 700 800 900",
 });
 
-const space = localFont({
+const spaceGrotesk = localFont({
   src: "./fonts/SpaceGroteskVF.ttf",
   variable: "--font-space-grotesk",
   weight: "300 400 500 600 700",
@@ -40,7 +40,9 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
         />
       </head>
       <SessionProvider session={session}>
-        <body className={`${inter.variable} ${space.variable} antialiased`}>
+        <body
+          className={`${inter.className} ${spaceGrotesk.variable} antialiased`}
+        >
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
